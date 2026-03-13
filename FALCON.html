@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple carousel · example</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0eaff;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 1rem;
+        }
+
+        .card {
+            max-width: 700px;
+            width: 100%;
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem 1.5rem 2.5rem 1.5rem;
+            box-shadow: 0 15px 30px #b9a6dd;
+            text-align: center;
+        }
+
+        h2 {
+            color: #2c2152;
+            margin-bottom: 1.8rem;
+            font-weight: 500;
+            font-size: 2rem;
+        }
+
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 1.2rem;
+            scroll-snap-type: x mandatory;
+            padding: 0.5rem 0.2rem 1.5rem 0.2rem;
+
+            scrollbar-width: thin;
+            scrollbar-color: #a58bd4 #e5d9ff;
+        }
+
+        .carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+        .carousel::-webkit-scrollbar-track {
+            background: #e5d9ff;
+            border-radius: 20px;
+        }
+        .carousel::-webkit-scrollbar-thumb {
+            background: #a58bd4;
+            border-radius: 20px;
+        }
+
+        .carousel-item {
+            scroll-snap-align: start;
+            flex: 0 0 auto;
+            width: 645px;
+            height: 650px;
+            background: #7a62b5;
+            border-radius: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 8px 12px #9d87cf;
+            border: 3px solid white;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1.4rem;
+        }
+
+        .note {
+            margin-top: 1.8rem;
+            color: #4a3977;
+            background: #eee5ff;
+            padding: 0.8rem 1.2rem;
+            border-radius: 3rem;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>🖼️ simple carousel</h2>
+
+        <div class="carousel">
+
+            <div class="carousel-item" id = "Slide1"><img src="c:\Users\comlab1\Downloads\The golden sunset reflecting on the calm ocean and sandy shore, with palm trees in silhouette, creates a peaceful and relaxing atmosphere_ 🌅.jpg" alt=""></div>
+            <div class="carousel-item" id = "Slide2"><img src="c:\Users\comlab1\Downloads\Nissan.jpg" alt=""></div>
+            <div class="carousel-item" id = "Slide3"><img src="c:\Users\comlab1\Downloads\Chase the Northern Lights in Iceland – A Magical Noctourism Adventure.jpg" alt=""></div>
+            <div class="carousel-item" id = "Slide4"><img src="c:\Users\comlab1\Downloads\'Silver Koenigsegg Jesko Sports Car' Poster, picture, metal print, paint by Zenz _ Displate.jpg" alt=""></div>
+            <div class="carousel-item" id = "Slide5"><img src="c:\Users\comlab1\Downloads\sarim (kikilokh5) - Profile _ Pinterest.jpg" alt=""></div>
+            <div class="carousel-item" id = "Slide6"><img src="c:\Users\comlab1\Downloads\download.jpg" alt=""></div>
+        </div>
+
+        <div class="controls" style="margin-top: 1rem; display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+    <button class="nav-btn" onclick="goToSlide('Slide1')">Slide 1</button>
+    <button class="nav-btn" onclick="goToSlide('Slide2')">Slide 2</button>
+    <button class="nav-btn" onclick="goToSlide('Slide3')">Slide 3</button>
+    <button class="nav-btn" onclick="goToSlide('Slide4')">Slide 4</button>
+    <button class="nav-btn" onclick="goToSlide('Slide5')">Slide 5</button>
+    <button class="nav-btn" onclick="goToSlide('Slide6')">Slide 6</button>
+</div>
+
+<style>
+    .nav-btn {
+        background: #7a62b5;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.8rem;
+        cursor: pointer;
+        font-weight: bold;
+        transition: transform 0.2s, background 0.2s;
+    }
+    .nav-btn:hover {
+        background: #5e4a8f;
+        transform: scale(1.1);
+    }
+</style>
+
+<script>
+    function goToSlide(slideId) {
+        const element = document.getElementById(slideId);
+        element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'center'
+        });
+    }
+</script>
+
+        <div class="note">
+            ⬅️ swipe / drag →  ·  snap enabled  ·  pure CSS
+        </div>
+
+        <p style="margin-top: 1.5rem; color:#3c2d66; background:#f3ecff; padding:0.6rem; border-radius:3rem;">
+            ✔️ <code>display: flex</code> + <code>overflow-x: auto</code> + <code>scroll-snap-type</code>
+        </p>
+    </div>
+</body>
+</html>
